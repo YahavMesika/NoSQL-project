@@ -1,0 +1,433 @@
+//יצירת דאטה בייס וקולוקשיינים
+use Fifa_data
+db.createCollection("Leagues")
+db.createCollection("Clubs")
+db.createCollection("Players")
+
+//יצירת מסמכים בקולקשיין ליגה
+
+db.Leagues.insertOne({_id:1,Country:"England",league_name:"Premier League",Team_amount:4,League_Manager:"dav_id Bekcham"})
+db.Leagues.insertOne({_id:2,Country:"Spain",league_name:"La Liga",Team_amount:4,League_Manager:"Raul Gonzales Blanko"})
+db.Leagues.insertMany([{_id:3,Country:"Israel",league_name:"Ligat Haal",Team_amount:4,League_Manager:"Yahav Mesika"},
+{_id:4,Country:"Germany",league_name:"Bundesliga",Team_amount:4,League_Manager:"Lukas Podolski"}])
+
+
+// יצירת מסמכים בקולקשיין קבוצה
+
+db.Clubs.insertOne({_id:1,League_Id:1,Number_Players:5,Club_name:"Arsenal",
+Stadium:"Emirates Stadium",Avg_Fans_amount:55353,Coach:"Mikel Arteta",Budget_Dollars:250674132,
+Championship_Titles:12})
+
+db.Clubs.insertMany([
+{_id:2, League_Id:1,Number_Players:5,Club_name:"Chelsea",
+Stadium:"Stamford Bridge",Avg_Fans_amount:47856,Coach:"Thomas Tuchel",
+Budget_Dollars:230564139,Championship_Titles:15},
+
+{_id:3, League_Id:1,Number_Players:5,Club_name:"Manchester City",
+Stadium:"Etihad Stadium",Avg_Fans_amount:53965,Coach:"Pep Guardiola",
+Budget_Dollars:280563549,Championship_Titles:10},
+
+{_id:4, League_Id:1,Number_Players:5,Club_name:"Liverpool",
+Stadium:"Anfield",Avg_Fans_amount:48421,Coach:"Jurgen Klopp",
+Budget_Dollars:210598139,Championship_Titles:8},
+
+{_id:5, League_Id:2,Number_Players:5,Club_name:"Barcelona",
+Stadium:"Camp Nou",Avg_Fans_amount:60142,Coach:"Ronald Koeman",
+Budget_Dollars:200599139,Championship_Titles:12},
+
+{_id:6, League_Id:2,Number_Players:5,Club_name:"Real Madrid",
+Stadium:"Santiago Bernabeu",Avg_Fans_amount:65358,Coach:"Carlo Ancelotti",
+Budget_Dollars:260563239,Championship_Titles:15},
+
+{_id:7, League_Id:2,Number_Players:5,Club_name:"Valencia",
+Stadium:"Mestalla Stadium",Avg_Fans_amount:45371,Coach:"Javi Gracia",
+Budget_Dollars:190564139,Championship_Titles:8},
+
+{_id:8, League_Id:2,Number_Players:5,Club_name:"Real Betis",
+Stadium:"Benito Villamarin Stadium",Avg_Fans_amount:46262,Coach:"Manuel Pellegrini",
+Budget_Dollars:140514439,Championship_Titles:5},
+
+{_id:9, League_Id:3,Number_Players:5,Club_name:"Maccabi Tel Aviv",
+Stadium:"Bloomfield Stadium",Avg_Fans_amount:27262,Coach:"Vladimir Ivic",
+Budget_Dollars:40564239,Championship_Titles:15},
+
+{_id:10, League_Id:3,Number_Players:5,Club_name:"Maccabi Haifa",
+Stadium:"Sammy Ofer Stadium",Avg_Fans_amount:29785,Coach:"Barak Bachar",
+Budget_Dollars:36156981,Championship_Titles:10},
+
+{_id:11, League_Id:3,Number_Players:5,Club_name:"Hapoel Tel Aviv",
+Stadium:"Bloomfield Stadium",Avg_Fans_amount:27262,Coach:"Nir Klinger",
+Budget_Dollars:20563839,Championship_Titles:8},
+
+{_id:12, League_Id:3,Number_Players:5,Club_name:"Beitar Jerusalem",
+Stadium:"Teddy Stadium",Avg_Fans_amount:32965,Coach:"Roni Levy",
+Budget_Dollars:25267239,Championship_Titles:6},
+
+{_id:13, League_Id:4,Number_Players:5,Club_name:"Borussia Dortmund",
+Stadium:"Signal Iduna Park",Avg_Fans_amount:62197,Coach:"Edin Terzic",
+Budget_Dollars:220564239,Championship_Titles:12},
+
+{_id:14, League_Id:4,Number_Players:5,Club_name:"Bayern Munichen",
+Stadium:"Allianz Arena",Avg_Fans_amount:63762,Coach:"Julian Nagelsmann",
+Budget_Dollars:250568362,Championship_Titles:15},
+
+{_id:15, League_Id:4,Number_Players:5,Club_name:"Hamburg SV",
+Stadium:"Volkspark Stadium",Avg_Fans_amount:57262,Coach:"Tim Walter",
+Budget_Dollars:160564239,Championship_Titles:6},
+
+{_id:16, League_Id:4,Number_Players:5,Club_name:"VfB Stuttgart",
+Stadium:"Mercedes-Benz Arena",Avg_Fans_amount:54951,Coach:" Pellegrino Matarazzo",
+Budget_Dollars:180574219,Championship_Titles:5}])
+
+
+
+//יצירת מסמכים לקולקשיין שחקנים
+
+db.Players.insertMany([
+{_id:1,name:"Pierre-Emerick Aubameyang",club_id:1,club_name:"Arsenal",age:29,Value:34291825,position:["ST","SS"],stat:{goals:19, assist:2, avg_minutes_played:73, avg_rating:4.1,red_card:0}},
+{_id:2,name:"Bukayo",club_id:1,club_name:"Arsenal",age:23,Value:35291346,position:["ST","SS"],stat:{goals:5, assist:5, avg_minutes_played:88, avg_rating:3.6,red_card:2}},
+{_id:3,name:"SakaThomas",club_id:1,club_name:"Arsenal",age:24,Value:31251146,position:["LW","RW"],stat:{goals:2, assist:8, avg_minutes_played:85, avg_rating:3.2,red_card:0}},
+{_id:4,name:"Lacazette",club_id:1,club_name:"Arsenal",age:31,Value:40291856,position:["ST","SS"],stat:{goals:7, assist:1, avg_minutes_played:90, avg_rating:4.9,red_card:1}},
+{_id:5,name:"Kieran Tierney",club_id:1,club_name:"Arsenal",age:19,Value:36291866,position:["CB","LB"],stat:{goals:2, assist:1, avg_minutes_played:90, avg_rating:2.9,red_card:1}}]);
+
+db.Players.insertMany([
+{_id:6,name:"N'Golo Kante",club_id:2,club_name:"Chelsea",age:25,Value: 42500000,position:["CM","CDM"],stat: {goals:12, assist:24, avg_minutes_played:79, avg_rating:4.9, red_card:1}},
+{_id:7,name:"Mason Mount",club_id:2,club_name:"Chelsea",age:28,Value: 44500000,position:["CAM","CM"],stat: {goals:7, assist:5, avg_minutes_played:68, avg_rating:4.6,red_card:0}},
+{_id:8,name:"Timo Werner",club_id:2,club_name:"Chelsea",age:24,Value: 30500000,position:["ST","SS","CAM"],stat: {goals:2, assist:8, avg_minutes_played:85, avg_rating:3.9,red_card:1}},
+{_id:9,name:"Thiago Silva",club_id:2,club_name:"Chelsea",age:34,Value: 35500000,position:["CB"],stat: {goals:4, assist:1, avg_minutes_played:70, avg_rating:4.1,red_card:4}},
+{_id:10,name:"Reece James",club_id:2,club_name:"Chelsea",age:39,Value: 31700000,position:["RB","CB","RM"],stat: {goals:8, assist:11, avg_minutes_played:80, avg_rating:2.9,red_card:2}}]);
+
+db.Players.insertMany([
+{_id:11,name:"Kevin De Bruynee",club_id:3,club_name:"Manchester City",age:21,Value:70500000,position:["CAM","CM"],stat:{goals:2, assist:4, avg_minutes_played:77, avg_rating:5.0,red_card:0}},
+{_id:12,name:"Raheem Sterling",club_id:3,club_name:"Manchester City",age:27,Value:45500000,position:["LW","SS"],stat:{goals:7, assist:16, avg_minutes_played:88, avg_rating:4.4,red_card:0}},
+{_id:13,name:"Riyad Mahrez",club_id:3,club_name:"Manchester City",age:22,Value:40500000,position:["LW","RW"],stat:{goals:12, assist:2, avg_minutes_played:85, avg_rating:4.9,red_card:0}},
+{_id:14,name:"Ruben Dias",club_id:3,club_name:"Manchester City",Value:32500000,age:36,position:["CB","RB"],stat:{goals:4, assist:1, avg_minutes_played:70, avg_rating:31,red_card:3}},
+{_id:15,name:"Phil Foden",club_id:3,club_name:"Manchester City",age:20,Value:39500000,position:["CAM","CM","SS"],stat:{goals:4, assist:1, avg_minutes_played:80, avg_rating:2.3,red_card:0}}]);
+
+db.Players.insertMany([
+{_id:16,name:"Mohamed Salah",club_id:4,club_name:"Liverpool",age:28,Value:69500000,position:["LW","CAM"],stat:{goals:7, assist:24, avg_minutes_played:87, avg_rating:4.7,red_card:0}},
+{_id:17,name:"Sadio Mane",club_id:4,club_name:"Liverpool",Value:33750000,age:31,position:["RW","SS"],stat:{goals:7, assist:6, avg_minutes_played:67, avg_rating:3.4,red_card:0}},
+{_id:18,name:"Alisson Becker",club_id:4,club_name:"Liverpool",Value:46800000,age:29,position:["GK"],stat:{goals:0, assist:0, avg_minutes_played:90, avg_rating:4.0,red_card:1}},
+{_id:19,name:"Virgil van Dijk",club_id:4,club_name:"Liverpool",Value:35200000,age:26,position:["CB","CDM"],stat:{goals:1, assist:1, avg_minutes_played:76, avg_rating:2.9,red_card:3}},
+{_id:20,name:"Trent Alexander-Arnold",club_id:4,club_name:"Liverpool",Value:42100000,age:20,position:["RB","RM"],stat:{goals:4, assist:13, avg_minutes_played:89, avg_rating:4.3,red_card:0}}]);
+
+db.Players.insertMany([
+{_id:21,name:"Lionel Messi",club_id:5,club_name:"Barcelona",age:33,Value:52297436,position:["CAM","SS","ST"],stat:{goals:25, assist:12, avg_minutes_played:88, avg_rating:4.5,red_card:0}},
+{_id:22,name:"Sergio Busquets",club_id:5,club_name:"Barcelona",age:30,Value:35212356,position:["CDM","CM"],stat:{goals:4, assist:5, avg_minutes_played:67, avg_rating:3.6,red_card:1}},
+{_id:23,name:"Frenkie de Jong",club_id:5,club_name:"Barcelona",age:24,Value:39581856,position:["CAM","CM"],stat:{goals:2, assist:5, avg_minutes_played:83, avg_rating:2.9,red_card:1}},
+{_id:24,name:"Pedri",club_id:5,club_name:"Barcelona",age:20,Value:42298936,position:["CAM","RW"],stat:{goals:7, assist:6, avg_minutes_played:70, avg_rating:4.1,red_card:0}},
+{_id:25,name:"Gavi",club_id:5,club_name:"Barcelona",age:18,Value:43715856,position:["CM"],stat:{goals:6, assist:10, avg_minutes_played:76, avg_rating:3.9,red_card:0}},
+
+{_id:26,name:"Karim Benzema",club_id:6,club_name:"Real Madrid",age:32,Value:46717959,position:["ST","SS"],stat:{goals:22, assist:9, avg_minutes_played:84, avg_rating:4.2,red_card:0}},
+{_id:27,name:"Sergio Ramos",club_id:6,club_name:"Real Madrid",age:31,Value:40255816,position:["CB","RB"],stat:{goals:4, assist:2, avg_minutes_played:89, avg_rating:3.4,red_card:3}},
+{_id:28,name:"Luka Modric",club_id:6,club_name:"Real Madrid",age:34,Value:36713356,position:["CAM","CM"],stat:{goals:8, assist:6, avg_minutes_played:74, avg_rating:2.9,red_card:0}},
+{_id:29,name:"Vinicius Junior",club_id:6,club_name:"Real Madrid",age:20,Value:37780856,position:["LW","RW"],stat:{goals:15, assist:11, avg_minutes_played:79, avg_rating:4.1,red_card:0}},
+{_id:30,name:"Toni Kroos",club_id:6,club_name:"Real Madrid",age:28,Value:44976180,position:["CM","CDM"],stat:{goals:5, assist:10, avg_minutes_played:80, avg_rating:3.9,red_card:1}},
+
+{_id:31,name:"Carlos Soler",club_id:7,club_name:"Valencia",age:28,Value:39755880,position:["CAM","SS"],stat:{goals:12, assist:5, avg_minutes_played:84, avg_rating:4.1,red_card:0}},
+{_id:32,name:"Maxi Gomez",club_id:7,club_name:"Valencia",age:26,Value:36463256,position:["CDM","CM"],stat:{goals:2, assist:2, avg_minutes_played:89, avg_rating:3.2,red_card:2}},
+{_id:33,name:"Jose Gaya",club_id:7,club_name:"Valencia",age:31,Value:37825056,position:["CAM","CM"],stat:{goals:8, assist:3, avg_minutes_played:85, avg_rating:3.9,red_card:1}},
+{_id:34,name:"Gabriel Paulista",club_id:7,club_name:"Valencia",age:30,Value:40739851,position:["CM","LM"],stat:{goals:7, assist:9, avg_minutes_played:82, avg_rating:3.6,red_card:0}},
+{_id:35,name:"Yunus Musah",club_id:7,club_name:"Valencia",age:28,Value:34719996,position:["CAM","CM","RM"],stat:{goals:2, assist:10, avg_minutes_played:67, avg_rating:3.2,red_card:0}},
+
+{_id:36,name:"Nabil Fekir",club_id:8,club_name:"Real Betis",age:25,Value:30715790,position:["CAM","LM"],stat:{goals:11, assist:5, avg_minutes_played:90, avg_rating:4.0,red_card:0}},
+{_id:37,name:"Sergio Canales",club_id:8,club_name:"Real Betis",age:27,Value:24467756,position:["CDM","CM"],stat:{goals:4, assist:2, avg_minutes_played:67, avg_rating:2.9,red_card:1}},
+{_id:38,name:"Marc Bartra",club_id:8,club_name:"Real Betis",age:31,Value:27895056,position:["LB"],stat:{goals:6, assist:4, avg_minutes_played:85, avg_rating:3.4,red_card:1}},
+{_id:39,name:"Guido Rodriguez",club_id:8,club_name:"Real Betis",age:23,Value:30712851,position:["CAM"],stat:{goals:8, assist:3, avg_minutes_played:73, avg_rating:3.3,red_card:0}},
+{_id:40,name:"William Carvalho",club_id:8,club_name:"Real Betis",age:24,Value:22711696,position:["RB","CDM"],stat:{goals:3, assist:5, avg_minutes_played:72, avg_rating:3.1,red_card:1}}])
+
+db.Players.insertMany([
+{_id:41,name:"Dan Biton",club_id:9,club_name:"Maccabi Tel Aviv",age:22,Value: 3000000,position:["CM","CAM","CDM"],stat: {goals:2, assist:14, avg_minutes_played:79, avg_rating:3.9, red_card:1}},
+{_id:42,name:"Tal Ben Haim",club_id:9,club_name:"Maccabi Tel Aviv",age:38,Value: 4000000,position:["LW","RW"],stat: {goals:17, assist:5, avg_minutes_played:68, avg_rating:2.6,red_card:0}},
+{_id:43,name:"Nick Blackman",club_id:9,club_name:"Maccabi Tel Aviv",age:29,Value: 6500000,position:["ST","RW"],stat: {goals:2, assist:4, avg_minutes_played:85, avg_rating:4.4,red_card:2}},
+{_id:44,name:"Matan Hozez",club_id:9,club_name:"Maccabi Tel Aviv",age:24,Value: 1500000,position:["RM","LM"],stat: {goals:6, assist:5, avg_minutes_played:70, avg_rating:1.1,red_card:0}},
+{_id:45,name:"Eyal Golasa",club_id:9,club_name:"Maccabi Tel Aviv",age:31,Value: 8700000,position:["CM","CAM","RM"],stat: {goals:18, assist:11, avg_minutes_played:80, avg_rating:4.9,red_card:1}}]);
+
+db.Players.insertMany([
+{_id:46,name:"Yanic Wildschut",club_id:10,club_name:"Maccabi Haifa",age:27,Value: 5000000,position:["RW","LW"],stat: {goals:2, assist:14, avg_minutes_played:89, avg_rating:4.9, red_card:0}},
+{_id:47,name:"Nikita Rukavytsya",club_id:10,club_name:"Maccabi Haifa",age:33,Value: 4000000,position:["ST"],stat: {goals:17, assist:5, avg_minutes_played:78, avg_rating:3.6,red_card:0}},
+{_id:48,name:"Mohammad Abu Fani",club_id:10,club_name:"Maccabi Haifa",age:25,Value: 500000,position:["CM","CDM"],stat: {goals:2, assist:4, avg_minutes_played:86, avg_rating:1.4,red_card:5}},
+{_id:49,name:"Ofri Arad",club_id:10,club_name:"Maccabi Haifa",age:21,Value: 2500000,position:["CB","LB"],stat: {goals:6, assist:5, avg_minutes_played:71, avg_rating:1.9,red_card:1}},
+{_id:50,name:"Sun Menachem",club_id:10,club_name:"Maccabi Haifa",age:28,Value: 3700000,position:["LB","LM"],stat: {goals:18, assist:11, avg_minutes_played:60, avg_rating:3.9,red_card:1}}]);
+
+db.Players.insertMany([
+{_id:51,name:"Idan Vered ",club_id:11,club_name:"Hapoel Tel Aviv",age:34,Value: 500000,position:["LM","LW","CAM"],stat: {goals:2, assist:1, avg_minutes_played:61, avg_rating:2.7, red_card:1}},
+{_id:52,name:"Raz Shlomo",club_id:11,club_name:"Hapoel Tel Aviv",age:23,Value: 1700000,position:["CB","LB","CDM"],stat: {goals:2, assist:5, avg_minutes_played:88, avg_rating:3.6,red_card:0}},
+{_id:53,name:"Sintayehu Sallalich",club_id:11,club_name:"Hapoel Tel Aviv",age:29,Value: 1500000,position:["LB","LM"],stat: {goals:2, assist:4, avg_minutes_played:86, avg_rating:2.4,red_card:0}},
+{_id:54,name:"Niv Zrihan",club_id:11,club_name:"Hapoel Tel Aviv",age:22,Value: 7500000,position:["LW","LM"],stat:{goals:16, assist:5, avg_minutes_played:81, avg_rating:4.9,red_card:0}},
+{_id:55,name:"Osher davida",club_id:11,club_name:"Hapoel Tel Aviv",age:20,Value: 4700000,position:["ST","RW"],stat: {goals:8, assist:11, avg_minutes_played:70, avg_rating:3.9,red_card:2}}]);
+
+db.Players.insertMany([
+{_id:56,name:"Shay Konstantini",club_id:12,club_name:"Beitar Jerusalem",age:26,Value: 480000,position:["LB","LM"],stat: {goals:2, assist:11, avg_minutes_played:81, avg_rating:4.3, red_card:1}},
+{_id:57,name:"Antoine Conte",club_id:12,club_name:"Beitar Jerusalem",age:27,Value: 2700000,position:["RB","CB"],stat: {goals:2, assist:5, avg_minutes_played:88, avg_rating:3.6,red_card:0}},
+{_id:58,name:"Ange-Freddy Plumain",club_id:12,club_name:"Beitar Jerusalem",age:22,Value: 9500000,position:["LW","RW"],stat: {goals:19, assist:14, avg_minutes_played:86, avg_rating:4.8,red_card:0}},
+{_id:59,name:"Or Dasa",club_id:12,club_name:"Beitar Jerusalem",age:18,Value: 4500000,position:["LM","LW"],stat: {goals:6, assist:5, avg_minutes_played:81, avg_rating:4.1,red_card:0}},
+{_id:60,name:"Ofir Kriaf",club_id:12,club_name:"Beitar Jerusalem",age:29,Value: 8700000,position:["CDM","CB","CM"],stat: {goals:18, assist:11, avg_minutes_played:90, avg_rating:3.9,red_card:1}}]);
+
+db.Players.insertMany([
+{_id:61,name:"Erling Haaland",club_id:13,club_name:"Borussia Dortmund",age:22,Value:46543862,position:["ST"],stat:{goals:15, assist:8, avg_minutes_played:90, avg_rating:4.3,red_card:0}},
+{_id:62,name:"Marco Reus",club_id:13,club_name:"Borussia Dortmund",age:31,Value:40549562,position:["LM","LW","CAM"],stat:{goals:6, assist:5, avg_minutes_played:75, avg_rating:3.7,red_card:0}},
+{_id:63,name:"Jude Bellingham",club_id:13,club_name:"Borussia Dortmund",age:19,Value:43578892,position:["CDM","CM"],stat:{goals:6, assist:7, avg_minutes_played:85, avg_rating:3.5,red_card:1}},
+{_id:64,name:"Mats Hummels",club_id:13,club_name:"Borussia Dortmund",age:29,Value:38787551,position:["CB"],stat:{goals:2, assist:1, avg_minutes_played:85, avg_rating:3.3,red_card:1}},
+{_id:65,name:"Jadon Sancho",club_id:13,club_name:"Borussia Dortmund",age:23,Value:42775496,position:["LW","LM"],stat:{goals:4, assist:5, avg_minutes_played:70, avg_rating:3.0,red_card:0}},
+
+{_id:66,name:"Robert Lewandowski",club_id:14,club_name:"Bayern Munichen",age:31,Value:41541672,position:["ST"],stat:{goals:14, assist:5, avg_minutes_played:90, avg_rating:4.1,red_card:0}},
+{_id:67,name:"Manuel Neuer",club_id:14,club_name:"Bayern Munichen",age:32,Value:37547322,position:["GK"],stat:{goals:0, assist:0, avg_minutes_played:90, avg_rating:3.5,red_card:0}},
+{_id:68,name:"Thomas Muller",club_id:14,club_name:"Bayern Munichen",age:32,Value:38574212,position:["CAM","ST"],stat:{goals:9, assist:6, avg_minutes_played:85, avg_rating:3.5,red_card:1}},
+{_id:69,name:"Joshua Kimmich",club_id:14,club_name:"Bayern Munichen",age:26,Value:35765451,position:["LB","CB"],stat:{goals:2, assist:1, avg_minutes_played:85, avg_rating:3.2,red_card:2}},
+{_id:70,name:"Leon Goretzka",club_id:14,club_name:"Bayern Munichen",age:25,Value:34712496,position:["CM","CDM"],stat:{goals:4, assist:5, avg_minutes_played:70, avg_rating:2.9,red_card:1}},
+
+{_id:71,name:"Sonny Kittel",club_id:15,club_name:"Hamburger SV",age:33,Value:35876344,position:["ST","LW"],stat:{goals:9, assist:4, avg_minutes_played:90, avg_rating:3.9,red_card:0}},
+{_id:72,name:"Tim Leibold",club_id:15,club_name:"Hamburger SV",age:27,Value:32147572,position:["CDM"],stat:{goals:3, assist:1, avg_minutes_played:80, avg_rating:3.3,red_card:0}},
+{_id:73,name:"Moritz Heyer",club_id:15,club_name:"Hamburger SV",age:22,Value:38595312,position:["LW","LM"],stat:{goals:7, assist:3, avg_minutes_played:78, avg_rating:3.7,red_card:1}},
+{_id:74,name:"Simon Terodde",club_id:15,club_name:"Hamburger SV",age:25,Value:31464451,position:["CB","CDM"],stat:{goals:2, assist:1, avg_minutes_played:70, avg_rating:2.9,red_card:2}},
+{_id:75,name:"Jeremy Dudziak",club_id:15,club_name:"Hamburger SV",age:31,Value:37798796,position:["CAM"],stat:{goals:7, assist:5, avg_minutes_played:76, avg_rating:3.4,red_card:0}},
+
+{_id:76,name:"Sasa Kalajdzic",club_id:16,club_name:"VfB Stuttgart",age:23,Value:31897444,position:["ST"],stat:{goals:8, assist:4, avg_minutes_played:90, avg_rating:3.8,red_card:0}},
+{_id:77,name:"Silas Wamangituka",club_id:16,club_name:"VfB Stuttgart",age:28,Value:28113272,position:["CAM","RM"],stat:{goals:4, assist:1, avg_minutes_played:80, avg_rating:3.4,red_card:0}},
+{_id:78,name:"Orel Mangala",club_id:16,club_name:"VfB Stuttgart",age:24,Value:26595772,position:["CDM","CAM"],stat:{goals:5, assist:3, avg_minutes_played:78, avg_rating:3.7,red_card:1}},
+{_id:79,name:"Gonzalo Castro",club_id:16,club_name:"VfB Stuttgart",age:29,Value:31461641,position:["CB","CDM"],stat:{goals:1, assist:3, avg_minutes_played:67, avg_rating:2.9,red_card:1}},
+{_id:80,name:"Tanguy Coulibaly",club_id:16,club_name:"VfB Stuttgart",age:32,Value:27716736,position:["RM"],stat:{goals:5, assist:4, avg_minutes_played:76, avg_rating:3.4,red_card:0}}]);
+
+   
+//פונקציה המחזירה את שלושת שחקני ההתקפה הכי טובין לפי הרייטינג שלהם ומכניסה את זה לאוסף חדש
+function best_attack(){
+db.best_attackers.drop()
+db.createCollection("best_attackers")
+db.Players.find({position:{$in:["ST","SS"]}}).sort({"stat.avg_rating":-1}).limit(3).forEach(function(doc){db.best_attackers.insert(doc);})
+return db.best_attackers.find({},{_id:false,name:true,club_name:true,"stat.avg_rating":true}).pretty();
+}
+
+
+//שינוי שם,מחיקת קולקשיין שלם,יצירת קולקשיין מועתק, מחיקת מסמכים, עדכון רבים ועריכה
+db.Clubs.renameCollection("Football_club")
+db.best_attackers.drop()
+db.Football_club.find().forEach(function(docs){db.Top_clubs.insert(docs);})
+db.Top_clubs.remove({"Budget_Dollars":{$lt:200000000}})
+db.Players.updateMany({"stat.avg_rating":{$gte:4.2}},{$inc:{"stat.MVP": 1}})
+db.Players.find({"stat.MVP":{$exists:true}}).pretty()
+
+
+// פונקציה שמעלה את מספר האליפויות לפי מזהה קבוצה
+function IncChampions(Club_id){
+db.Football_club.updateOne({club_id:Club_id},{$inc:{Championship_Titles:1}})
+}
+
+
+
+//פונקציית מעבר, פונקצייה המקבלת מזהה קבוצה קונה,מזהה קבוצה מוכרת ומזהה שחקן ומבצעת את המעבר במידה ותקציב הקבוצה מאפשר זאת
+//מעדכנת את הפרטים הרלוונטים בקולקשיינים כמו התקציב העדכני, מספר שחקנים, שם הקבוצה החדשה לשחקן
+function transfer(id_buy, id_sell, player_id){
+ 
+var new_club = db.Football_club.findOne({ _id: id_buy }, { _id: false, Club_name: true }); // מגדירים קבוצה חדשה לשחקן שקנתה
+var value = db.Players.findOne({ _id: player_id }, { _id: false, Value: true }); // מגדירים ערך לשחקן שנקנה
+var Budget_buy = db.Football_club.findOne({ _id: id_buy }, { _id: false, Budget_Dollars: true });
+var player_name = db.Players.findOne({_id:player_id},{_id:false,name:true});
+var old_club = db.Football_club.findOne({ _id: id_sell }, { _id: false, Club_name: true }); 
+
+  if(Budget_buy.Budget_Dollars>=value.Value){
+  
+	db.Football_club.updateOne({ _id: id_buy }, { $inc: { Number_Players: 1 } });
+	db.Football_club.updateOne({ _id: id_buy }, { $inc: { Budget_Dollars: -value.Value } }); 
+	db.Players.updateOne({ _id: player_id }, { $set: { club_id: id_buy, club_name: new_club.Club_name }}); 
+	db.Football_club.updateOne({ _id: id_sell }, { $inc: { Number_Players: -1 } });
+	db.Football_club.updateOne({ _id: id_sell }, { $inc: {Budget_Dollars: value.Value }});
+	return print("The player "+player_name.name+" transfer from "+old_club.Club_name+" to "+new_club.Club_name+" for "+value.Value+"$")
+}
+  else{
+	print("Your budget is too low")
+}
+}
+
+//מוסיף למערך של תפקידים תפקיד חדש לפי מזהה שחקן ותפקיד המעוניין לוסיף 
+function addPosition(id_player,new_position){
+db.Players.updateOne({_id:id_player},{$addToSet:{position:new_position}})
+}
+
+
+//הוספת שדה של שחקן מצטיין בתוך התת מסמך של סטטיסטיקת שחקן ומעלה אותו באחד אם קיים
+function addMVP(id_player){
+db.Players.updateOne({ _id:id_player }, {$inc:{"stat.MVP": 1}}); 
+}
+
+//בונוס לכל הקבוצות שיש להן יותר מ-10 אליפויות
+ db.Football_club.updateMany({ Championship_Titles:{$gte:10}}, { $inc: { Budget_Dollars: 5000000} });
+ 
+ 
+
+ //מדפיס רשימת שחקנים שמשחקים בליגה שנבחרה לפי מזהה ליגה
+ function LeaguesDetails(id_leauges){
+ var league = db.Leagues.findOne({_id:id_leauges},{_id:false,league_name:true})
+ print("The selected league is: "+league.league_name)
+ var result = db.Football_club.find({League_Id:id_leauges},{_id:true}).toArray()
+ db.Players.find({club_id: {$gte: result[0]._id, $lte: result[result.length-1]._id}},{_id:false,name:true,club_name:true}).forEach(function(docs){db.Players_In_league.insert(docs);})
+ var Players_In_league = db.Players_In_league.find({},{_id:false}).pretty().toArray();
+ db.Players_In_league.drop()
+ return Players_In_league;
+ }
+
+//פונקציה המגרילה משחקים ושומרת אותם בקולקשיין חדש משחקים
+function games(){
+db.games.drop()
+array=[]
+for(i=1;i<9;i++){
+var home = Math.floor((17-1)*Math.random()+1)//Id for club
+var away = Math.floor((17-1)*Math.random()+1)
+if(home!=away){
+var name_home = db.Football_club.findOne({_id:home},{_id:false,Club_name:true})
+var name_away = db.Football_club.findOne({_id:away},{_id:false,Club_name:true})
+if(array.includes(home) || array.includes(away)){
+i--;}
+else{db.games.insert({_id:i,Home_club:name_home.Club_name,Away_club:name_away.Club_name})
+array.push(home);
+array.push(away);
+}
+}
+else{i--;
+}
+}
+var game = db.games.find()
+return game;
+}
+
+
+//Aggregate
+//השחקן הכי יקר בכל קבוצה
+db.Players.aggregate([
+{$lookup:{from:"Football_club",
+		  localField:"club_id",
+		  foreignField:"_id",
+		  as:"team"}},{$group:{_id:"$club_name",max:{$max:"$Value"}}},{$sort:{max:-1}}]).pretty()
+
+		  		
+// ספירת כמה שחקנים יש בתפקיד מסוים בכל קבוצה	  
+db.Players.aggregate([
+{$lookup:{from:"Football_club",
+		  localField:"club_id",
+		  foreignField:"_id",
+		  as:"positions"}},{$unwind:"$position"},{$group:{_id:{club_name: "$club_name",position: "$position"},count: { $sum: 1 }}},{$sort:{"_id.club_name":1,count:-1}}])
+
+//כמות קהל ממוצעת בכל ליגה		  
+db.Football_club.aggregate([
+{$lookup:{from:"Leagues",
+		  localField:"League_Id",
+		  foreignField:"_id",
+		  as:"Fans"}},{$unwind:"$Fans"},{$match:{Championship_Titles:{$gte:8}}},{$group:{_id:"$Fans.league_name",Avg_Fans_amount:{$avg:"$Avg_Fans_amount"}}},{$sort:{Avg_Fans_amount:-1}}])
+
+
+
+//פונקצייה המראה את כמות הגולים בכל ליגה ומבצעת סינון לפי הליגות עם פחות מ-120 גולים
+db.Players.aggregate([
+{$lookup:{from:"Football_club",
+		  localField:"club_id",
+		  foreignField:"_id",
+		  as:"total_data"}},{$unwind:"$total_data"},
+		  
+		  {$lookup:{from:"Leagues",
+		  localField:"total_data.League_Id",
+		  foreignField:"_id",
+		  as:"league_goals"}},{ $unwind: "$league_goals" },{$group:{_id:"$league_goals.league_name",Goals_amount:{$sum:"$stat.goals"}}},{$match:{Goals_amount:{$gte:120}}}]).pretty()
+		  
+		  
+//EMBEDDING הכנסנו את הקולקשיין שחקן לתוך קולקשיין קבוצה כתת מסמך ויצרנו מבנה 
+db.Football_club.aggregate([
+{$lookup:{from:"Players",
+		  localField:"_id",
+		  foreignField:"club_id",
+		  as:"Players_details"}},{$unset: "Players"},{$out:"Club_embedd"}])
+		  
+//המכיל את פרטי השחקן פרטי הקבוצה בכל ליגה data_embedding יצירת קולקשיין חדש בשם
+db.Leagues.aggregate([
+{$lookup:{from:"Club_embedd",
+		  localField:"_id",
+		  foreignField:"League_Id",
+		  as:"Club_details"}},
+{$out:"data_embedding"}])
+		  
+		  
+//מכיוון ששימש לנו כקולקשיין עזר club_embedd מחיקת הקולקשיין
+db.Club_embedd.drop() 
+
+
+
+//MapReduce
+
+//מציג את שווי הממוצע של שחקנים בכל קבוצה
+var mapFunction1 = function(){
+	emit(this.club_name,this.Value);
+}
+var reduceFunction1 = function(club_name,Value){
+return Array.avg(Value)
+}
+db.Players.mapReduce(mapFunction1,reduceFunction1,{out:"Avg_Players_Value"})
+
+
+//עבור כל תפקיד,כמה שחקנים יש בתפקיד הזה, כמה גולים ובישולים לפי תפקיד והיחס שבין גולים לבישולים
+
+var mapFunction2 = function(){
+var position = this.position
+for(i in position){
+	emit(position[i],{count:1,goals:this.stat.goals,assist:this.stat.assist})
+}
+}
+var reduceFunction2 = function(position,number){
+var values = {count:0,goals:0,assist:0}
+for(i in number){
+values.count+=number[i].count
+values.goals+=number[i].goals
+values.assist+=number[i].assist
+}
+return values;
+}
+var finalizeFunction2 = function(position, values) {
+  values.ratio_G_A = values.goals / values.assist;
+  return values;
+};
+db.Players.mapReduce(mapFunction2,reduceFunction2,{out:"position_count",finalize:finalizeFunction2})
+
+
+//now on the collection data_embedding
+//מספר הגולים עבור כל קבוצה
+var mapFunction3 = function(){
+for (i in this.Club_details){
+values=[]
+key = this.Club_details[i].Club_name
+	for(j in this.Club_details[i].Players_details){
+	values.push(this.Club_details[i].Players_details[j].stat.goals)
+	}
+	emit(key,values)}
+	}
+
+var reduceFunction3 = function(key,values){
+value = 0 
+for (i in values[0]){
+	value += values[0][i]
+}
+return value
+}
+db.data_embedding.mapReduce(mapFunction3, reduceFunction3, { out: "club_Goals_amount"})
+
+
+
+
+//עבור הליגה בישראל ואנגליה בלבד,הצגת כמות הבישולים והקבוצות המשחקות בליגות המצוינות
+var mapFunction4 = function(){
+key = this.Country
+num = 0 
+for (i in this.Club_details){
+	clubs = this.Club_details[i].Club_name
+	for(j in this.Club_details[i].Players_details){
+	num+=this.Club_details[i].Players_details[j].stat.assist
+	}emit(key,{num,clubs})
+	}}
+	
+var reduceFunction4 = function(key,values){
+league_details = {assist : 0, List_clubs : ""}
+league_details.assist = values[0].num
+for (i in values){
+	league_details.List_clubs+= '['+values[i].clubs+']'+', '
+}
+return league_details
+}
+db.data_embedding.mapReduce(mapFunction4, reduceFunction4, {query:{$or :[{Country:"England"},{Country:"Israel"}]}, out: "league_details"})
+
